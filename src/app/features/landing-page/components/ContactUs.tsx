@@ -34,7 +34,7 @@ export default function ContactUs() {
     <section id="contact" className="py-20 sm:py-32 bg-gray-50">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-16" data-aos="fade-up">
           <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
             Get in Touch
           </h2>
@@ -45,7 +45,7 @@ export default function ContactUs() {
 
         <div className="grid gap-12 lg:grid-cols-2">
           {/* Contact Information */}
-          <div className="space-y-8">
+          <div className="space-y-8" data-aos="fade-right">
             <div className="bg-white rounded-xl p-8 shadow-md">
               <h3 className="text-2xl font-bold text-gray-900 mb-8">Contact Information</h3>
 
@@ -119,7 +119,7 @@ export default function ContactUs() {
           </div>
 
           {/* Contact Form */}
-          <div className="bg-white rounded-xl p-8 shadow-md">
+          <div className="bg-white rounded-xl p-8 shadow-md" data-aos="fade-left">
             <h3 className="text-2xl font-bold text-gray-900 mb-6">Send us a Message</h3>
 
             {submitted && (

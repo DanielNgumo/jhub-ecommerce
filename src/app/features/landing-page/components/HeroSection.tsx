@@ -12,7 +12,7 @@ export default function HeroSection() {
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-8 items-center">
           {/* Content */}
-          <div className="text-center lg:text-left">
+          <div className="text-center lg:text-left" data-aos="fade-up">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">
               Welcome to <span className="text-indigo-600">EcommercePro</span>
             </h1>
@@ -33,15 +33,15 @@ export default function HeroSection() {
 
             {/* Stats */}
             <div className="mt-12 grid grid-cols-3 gap-8">
-              <div>
+              <div data-aos="fade-up" data-aos-delay="100">
                 <p className="text-3xl font-bold text-gray-900">10K+</p>
                 <p className="text-gray-600 text-sm mt-2">Happy Customers</p>
               </div>
-              <div>
+              <div data-aos="fade-up" data-aos-delay="200">
                 <p className="text-3xl font-bold text-gray-900">500+</p>
                 <p className="text-gray-600 text-sm mt-2">Products</p>
               </div>
-              <div>
+              <div data-aos="fade-up" data-aos-delay="300">
                 <p className="text-3xl font-bold text-gray-900">24/7</p>
                 <p className="text-gray-600 text-sm mt-2">Support</p>
               </div>
@@ -49,7 +49,7 @@ export default function HeroSection() {
           </div>
 
           {/* Hero Image */}
-          <div className="flex justify-center lg:justify-end">
+          <div className="flex justify-center lg:justify-end" data-aos="fade-left" data-aos-delay="400">
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-blue-600 rounded-2xl blur-xl opacity-30" />
               <div className="relative bg-gradient-to-br from-indigo-500 to-blue-600 rounded-2xl p-8 shadow-2xl">

@@ -17,7 +17,7 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 bg-white shadow-md">
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
         {/* Logo */}
-        <div className="flex items-center">
+        <div className="flex lg:flex-1">
           <a href="#" className="-m-1.5 p-1.5 flex items-center gap-2">
             <div className="h-8 w-8 bg-indigo-600 rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-lg">E</span>
@@ -32,7 +32,7 @@ export default function Navbar() {
             <a
               key={item.name}
               href={item.href}
-              className="text-sm font-semibold text-gray-900 hover:text-indigo-600 transition-colors"
+              className="relative text-sm font-semibold text-gray-900 hover:text-indigo-600 transition-colors py-1 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-indigo-600 after:transition-all after:duration-350 hover:after:w-full"
             >
               {item.name}
             </a>

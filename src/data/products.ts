@@ -29,5 +29,45 @@ export const products = [
     reviews: 96,
     image: '👟',
     category: 'Footwear'
+  },
+   {
+    id: 3,
+    name: 'Ultra Comfort Sneakers',
+    price: '$89.99',
+    originalPrice: '$129.99',
+    rating: 4,
+    reviews: 96,
+    image: '👟',
+    category: 'Footwear'
+  },
+    {
+    id: 4,
+    name: 'Premium Wireless Headphones',
+    price: '$199.99',
+    originalPrice: '$299.99',
+    rating: 5,
+    reviews: 128,
+    image: '🎧',
+    category: 'Electronics'
+  },
+  {
+    id: 5,
+    name: 'Ultra Comfort Sneakers',
+    price: '$89.99',
+    originalPrice: '$129.99',
+    rating: 4,
+    reviews: 96,
+    image: '👟',
+    category: 'Footwear'
+  },
+   {
+    id: 6,
+    name: 'Ultra Comfort Sneakers',
+    price: '$89.99',
+    originalPrice: '$129.99',
+    rating: 4,
+    reviews: 96,
+    image: '👟',
+    category: 'Footwear'
   }
 ]

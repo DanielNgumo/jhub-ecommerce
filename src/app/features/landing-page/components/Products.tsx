@@ -29,7 +29,7 @@ export default function Products() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="mb-16 text-center">
+        <div className="mb-16 text-center" data-aos="fade-up">
           <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
             Featured Products
           </h2>
@@ -41,10 +41,12 @@ export default function Products() {
 
         {/* Product Grid */}
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {displayedProducts.map((product) => (
+          {displayedProducts.map((product, index) => (
             <article
               key={product.id}
               className="group overflow-hidden rounded-xl bg-white shadow-md transition-shadow hover:shadow-xl"
+              data-aos="fade-up"
+              data-aos-delay={(index % 3) * 100}
             >
               {/* Product Image */}
               <div className="relative flex h-64 items-center justify-center overflow-hidden bg-gradient-to-br from-indigo-100 to-blue-100">

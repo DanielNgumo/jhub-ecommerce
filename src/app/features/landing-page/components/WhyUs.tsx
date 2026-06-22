@@ -28,7 +28,7 @@ export default function WhyUs() {
     <section id="why-us" className="py-20 sm:py-32 bg-white">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-16" data-aos="fade-up">
           <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
             Why Choose EcommercePro?
           </h2>
@@ -42,7 +42,12 @@ export default function WhyUs() {
           {reasons.map((reason, index) => {
             const Icon = reason.icon
             return (
-              <div key={index} className="relative group">
+              <div
+                key={index}
+                className="relative group"
+                data-aos="fade-up"
+                data-aos-delay={index * 100}
+              >
                 {/* Background hover effect */}
                 <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 to-blue-50 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 
@@ -74,7 +79,7 @@ export default function WhyUs() {
         </div>
 
         {/* Trust Badges */}
-        <div className="mt-16 pt-12 border-t border-gray-200">
+        <div className="mt-16 pt-12 border-t border-gray-200" data-aos="fade-up" data-aos-delay="200">
           <p className="text-center text-gray-600 text-sm uppercase tracking-wider font-semibold mb-8">
             Trusted by thousands of customers
           </p>

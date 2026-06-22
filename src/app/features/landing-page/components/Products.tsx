@@ -1,8 +1,9 @@
 'use client'
 
-import { useState } from 'react'
+import Link from 'next/link'
 import { StarIcon, ShoppingCartIcon } from '@heroicons/react/24/solid'
 import { ArrowRightIcon } from '@heroicons/react/24/outline'
+import { useCart } from '@/app/context/CartContext'
 
 import { products, type Product } from '@/data/products'
 
@@ -18,11 +19,10 @@ const renderStars = (rating: Product['rating']) => {
 }
 
 export default function Products() {
-  const [showAll, setShowAll] = useState(false)
+  const { addToCart } = useCart()
 
-  const displayedProducts = showAll
-    ? products
-    : products.slice(0, 3)
+  // Display only the first 3 products as featured items on home page
+  const displayedProducts = products.slice(0, 3)
 
   return (
     <section id="products" className="bg-gray-50 py-20 sm:py-32">
@@ -49,15 +49,18 @@ export default function Products() {
               data-aos-delay={(index % 3) * 100}
             >
               {/* Product Image */}
-              <div className="relative flex h-64 items-center justify-center overflow-hidden bg-gradient-to-br from-indigo-100 to-blue-100">
+              <Link
+                href={`/products/${product.slug}`}
+                className="relative flex h-64 items-center justify-center overflow-hidden bg-gradient-to-br from-indigo-100 to-blue-100 cursor-pointer block"
+              >
                 <span className="text-8xl transition-transform duration-300 group-hover:scale-110">
-                  {product.image}
+                  {product.images[0]}
                 </span>
 
                 <span className="absolute right-4 top-4 rounded-full bg-red-500 px-3 py-1 text-sm font-semibold text-white">
                   Sale
                 </span>
-              </div>
+              </Link>
 
               {/* Product Content */}
               <div className="p-6">
@@ -65,9 +68,11 @@ export default function Products() {
                   {product.category}
                 </p>
 
-                <h3 className="mt-2 text-lg font-bold text-gray-900">
-                  {product.name}
-                </h3>
+                <Link href={`/products/${product.slug}`} className="block mt-2 group/title">
+                  <h3 className="text-lg font-bold text-gray-900 group-hover/title:text-indigo-600 transition-colors">
+                    {product.name}
+                  </h3>
+                </Link>
 
                 {/* Ratings */}
                 <div className="mt-3 flex items-center gap-2">
@@ -91,36 +96,36 @@ export default function Products() {
                   </span>
                 </div>
 
-                {/* Add To Cart */}
-                <button
-                  className="mt-6 flex w-full items-center justify-center gap-2 rounded-lg bg-indigo-600 px-4 py-3 font-semibold text-white transition-colors hover:bg-indigo-700"
-                >
-                  <ShoppingCartIcon className="h-5 w-5" />
-                  Add to Cart
-                </button>
+                {/* Actions */}
+                <div className="mt-6 flex gap-3">
+                  <button
+                    onClick={() => addToCart(product)}
+                    className="flex-1 flex items-center justify-center gap-2 rounded-lg bg-indigo-600 px-4 py-2.5 font-semibold text-white transition-colors hover:bg-indigo-700 text-sm"
+                  >
+                    <ShoppingCartIcon className="h-4 w-4" />
+                    Add to Cart
+                  </button>
+                  <Link
+                    href={`/products/${product.slug}`}
+                    className="flex items-center justify-center rounded-lg border border-indigo-600 px-4 py-2.5 font-semibold text-indigo-600 hover:bg-indigo-50 transition-colors text-sm"
+                  >
+                    Details
+                  </Link>
+                </div>
               </div>
             </article>
           ))}
         </div>
 
-        {/* Toggle Buttons */}
+        {/* Redirect CTA Button */}
         <div className="mt-12 flex justify-center">
-          {!showAll ? (
-            <button
-              onClick={() => setShowAll(true)}
-              className="inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-8 py-3 text-lg font-semibold text-white shadow-lg transition-colors hover:bg-indigo-700"
-            >
-              View More Products
-              <ArrowRightIcon className="h-5 w-5" />
-            </button>
-          ) : (
-            <button
-              onClick={() => setShowAll(false)}
-              className="font-semibold text-indigo-600 transition-colors hover:text-indigo-700"
-            >
-              Show Less
-            </button>
-          )}
+          <Link
+            href="/products"
+            className="inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-8 py-3 text-lg font-semibold text-white shadow-lg transition-colors hover:bg-indigo-700"
+          >
+            View More Products
+            <ArrowRightIcon className="h-5 w-5" />
+          </Link>
         </div>
 
       </div>

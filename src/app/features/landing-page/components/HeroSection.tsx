@@ -2,7 +2,7 @@ import { ArrowRightIcon } from '@heroicons/react/24/solid'
 
 export default function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-indigo-50 to-blue-50 py-20 sm:py-32 lg:py-48">
+    <section id="hero" className="relative overflow-hidden bg-gradient-to-br from-indigo-50 to-blue-50 py-20 sm:py-32 lg:py-48">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 h-80 w-80 rounded-full bg-indigo-200 opacity-20 blur-3xl" />

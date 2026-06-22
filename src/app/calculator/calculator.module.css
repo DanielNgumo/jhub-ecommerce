@@ -1,0 +1,311 @@
+/* School Calculator CSS module */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: radial-gradient(circle at center, #2c3e50 0%, #0f171e 100%);
+  padding: 20px;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  color: #f1f2f6;
+  user-select: none;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+  color: #a0aec0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+/* Calculator Chassis */
+.calculator {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  background: linear-gradient(145deg, #2b2d42 0%, #1a1b29 100%);
+  border-radius: 28px;
+  padding: 24px;
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.8),
+    inset 0 2px 3px rgba(255, 255, 255, 0.15),
+    inset 0 -3px 6px rgba(0, 0, 0, 0.6);
+  border: 1px solid #373a56;
+}
+
+/* Screw details for realism */
+.screw {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle, #555 30%, #222 90%);
+  border-radius: 50%;
+  opacity: 0.4;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,0.8);
+}
+.screwTopLeft { top: 12px; left: 12px; }
+.screwTopRight { top: 12px; right: 12px; }
+.screwBottomLeft { bottom: 12px; left: 12px; }
+.screwBottomRight { bottom: 12px; right: 12px; }
+
+/* Top Section: Solar Panel & Brand Info */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 0 4px;
+}
+
+.brandInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand {
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: #e2e8f0;
+  text-shadow: 1px 1px 0px rgba(0,0,0,0.5);
+  font-family: var(--font-sans), Arial, sans-serif;
+  line-height: 1;
+}
+
+.model {
+  font-size: 0.55rem;
+  letter-spacing: 0.1em;
+  color: #a0aec0;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+.solarPanel {
+  width: 90px;
+  height: 28px;
+  background: linear-gradient(90deg, #3d2314 0%, #58331c 50%, #3d2314 100%);
+  border: 2px solid #1a1b29;
+  border-radius: 4px;
+  display: flex;
+  gap: 8px;
+  padding: 3px;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.8);
+}
+
+.solarCell {
+  flex: 1;
+  background: rgba(0, 0, 0, 0.2);
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+.solarCell:last-child {
+  border-right: none;
+}
+
+/* Display Enclosure */
+.displayWrapper {
+  background: #11121b;
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 24px;
+  box-shadow: 
+    inset 0 4px 10px rgba(0, 0, 0, 0.9),
+    0 1px 1px rgba(255, 255, 255, 0.1);
+  border: 1px solid #232535;
+}
+
+/* Recessed LCD Screen */
+.screen {
+  background-color: #92a492; /* Retro LCD olive-green */
+  border-radius: 6px;
+  padding: 12px 14px;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.4);
+  border: 1px solid #7d8e7d;
+  position: relative;
+  overflow: hidden;
+}
+
+/* LCD Glare Effect */
+.screen::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 100%);
+  pointer-events: none;
+}
+
+.expressionText,
+.resultText {
+  color: #1a231a; /* Very dark liquid-crystal grey */
+  font-family: var(--font-mono), monospace;
+  text-align: right;
+  word-wrap: break-word;
+  word-break: break-all;
+  white-space: nowrap;
+  overflow: hidden;
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.25);
+  font-variant-numeric: tabular-nums;
+}
+
+.expressionText {
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  min-height: 1.2rem;
+  opacity: 0.75;
+}
+
+.resultText {
+  font-size: 1.85rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  min-height: 1.85rem;
+}
+
+/* Indicator lights/symbols */
+.indicators {
+  position: absolute;
+  top: 4px;
+  left: 14px;
+  display: flex;
+  gap: 6px;
+  font-size: 0.5rem;
+  color: #1a231a;
+  opacity: 0.6;
+  font-family: var(--font-sans), sans-serif;
+  font-weight: bold;
+}
+
+/* Keyboard Panel */
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+/* Base button style */
+.btn {
+  position: relative;
+  height: 52px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  cursor: pointer;
+  outline: none;
+  transition: background 0.1s ease, box-shadow 0.1s ease, transform 0.1s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-sans), Arial, sans-serif;
+  
+  /* 3D keys styling */
+  box-shadow: 
+    0 4px 0px rgba(10, 11, 16, 0.8),
+    inset 0 1px 0px rgba(255, 255, 255, 0.15);
+  transform: translateY(0px);
+}
+
+/* Touch active & script-controlled key active styles */
+.btn:active,
+.btnActive {
+  transform: translateY(3px) !important;
+  box-shadow: 
+    0 1px 0px rgba(10, 11, 16, 0.8),
+    inset 0 1px 0px rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Key Colors */
+.btnNum {
+  background: linear-gradient(to bottom, #4f5165 0%, #3a3b4e 100%);
+  border: 1px solid #333446;
+}
+.btnNum:hover {
+  background: linear-gradient(to bottom, #5d5f75 0%, #44455b 100%);
+}
+
+.btnOp {
+  background: linear-gradient(to bottom, #383a45 0%, #282a32 100%);
+  border: 1px solid #202128;
+}
+.btnOp:hover {
+  background: linear-gradient(to bottom, #434552 0%, #30323c 100%);
+}
+
+.btnAction {
+  background: linear-gradient(to bottom, #d95d39 0%, #be4c2a 100%);
+  border: 1px solid #a63f21;
+  font-size: 0.95rem;
+}
+.btnAction:hover {
+  background: linear-gradient(to bottom, #e46d4a 0%, #c95633 100%);
+}
+
+.btnEquals {
+  background: linear-gradient(to bottom, #f2a65a 0%, #d88e43 100%);
+  border: 1px solid #bf7b35;
+  color: #1a1b29;
+}
+.btnEquals:hover {
+  background: linear-gradient(to bottom, #f7b46f 0%, #e0994f 100%);
+}
+
+/* Instructions / Legend card */
+.instructions {
+  margin-top: 30px;
+  max-width: 380px;
+  width: 100%;
+  background: rgba(43, 45, 66, 0.4);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.instructions h2 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #f2a65a;
+  margin-bottom: 10px;
+}
+
+.instructions ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.instructions li {
+  font-size: 0.75rem;
+  color: #a0aec0;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.instructions li:last-child {
+  margin-bottom: 0;
+}
+
+.instructions code {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: var(--font-mono), monospace;
+  color: #e2e8f0;
+}

@@ -2,7 +2,7 @@ import { EnvelopeIcon, MapPinIcon } from '@heroicons/react/24/outline'
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-300">
+    <footer id="footer" className="bg-gray-900 text-gray-300">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Main Footer Content */}
         <div className="py-16 grid gap-8 md:grid-cols-4">
